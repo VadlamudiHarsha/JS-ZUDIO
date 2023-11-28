@@ -1,0 +1,77 @@
+<html>
+    <head>
+      <style>
+       form{
+          padding: 10px;
+          text-align: center;
+        }
+        body{
+            background-image: url(./login.jpeg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        #ha{
+            border: 2px solid black;
+            width: 240;
+            height: 260;
+            position: relative;
+           left:430;
+           top:300
+        }
+      
+      </style>
+    </head>
+    <body>
+        <div id="ha">
+      <center><h3>
+        LOGIN DETAILS
+      </h3></center>
+        <form action="">
+            Username:<input type="text" placeholder="enter your name"><br><br>
+            <!-- <div style="display: none;">valid &#9989;</div>
+            <span style="display: none;">user doesn't exist &#10060;</span> -->
+           Gmail: <input type="email" placeholder="Enter emailid"><br><br>
+           <!-- <h5 style="display: none;">valid &#9989;</h5>
+           <h6 style="display: none;">please enter valid emailid</h6> -->
+           Password: <input type="password" placeholder="Enter Password"><br><br>
+           <!-- <pre style="display: none;">valid &#9989;</pre>
+           <p style="display: none;">Enter the correct password &#10060;</p> -->
+           <div style="display: none; color: darkgreen;">login successfull</div>
+           <span style="display: none; color: red;">invalid credentials</span>
+           <input type="submit" value="LOGIN" id="submit">
+           
+        </form>
+    </div>
+        <script>
+       var storedarr=localStorage.getItem("array");
+       var a=JSON.parse(storedarr);
+       console.log(a);
+
+          document.forms[0].addEventListener("submit", (event) => {
+            event.preventDefault();
+            var username = event.target[0].value;
+            var gmail = event.target[1].value;
+            var password = event.target[2].value;
+              for(i=0;i<a.length;i++){
+            if (username===a[i].username && gmail===a[i].gmaill && password===a[i].Password) {
+       let s=document.querySelector("div");
+       s.style.display="block";
+      let t=document.querySelector("span");
+      t.style.display="none";
+      window.open("./zudio.html","_blank")
+      break;
+    
+            }
+          
+         if(i===a.length){
+            let t=document.querySelector("span");
+       t.style.display="block";
+       let s=document.querySelector("div");
+       s.style.display="none";
+         }
+        }
+        
+        })
+      </script>
+   </body>
+</html>

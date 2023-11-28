@@ -1,0 +1,52 @@
+<html>
+    <head> 
+      <style>
+         button{
+            position: absolute;
+            left:1100;
+            top:400;
+            color: rgb(14, 186, 65);
+            font-size: 20;
+            background-color: darkgray;
+         }
+      </style>
+    </head>
+       <body>
+        
+        <p></p>
+        <p></p>
+        
+        <img src="">
+        <p><h4></h4></p>
+        <button onclick="backward1()">BACK</button>
+        <script>
+          
+           var d=localStorage.getItem("products");
+           var d1=JSON.parse(d);
+           var e=document.querySelectorAll("p");
+           e[0].innerText=d1["id"];
+           e[0].style.textAlign="center";
+           e[1].innerText=d1["category"];
+           e[1].style.textAlign="center";
+
+           var imgg12=document.querySelector("img");
+           imgg12.setAttribute("src",d1["image"]);
+           imgg12.style.textAlign=d1["image"];
+           imgg12.style.width="200";
+           imgg12.style.height="200px";
+           imgg12.style.position="relative";
+           imgg12.style.left="500px"
+           e[2].innerText=d1["title"];
+           e[2].style.textAlign="center";
+           e[3].innerText=d1["price"];
+           e[3].style.textAlign="center";
+
+           
+         
+            let backward1=()=>{
+               window.history.back()
+            }
+           
+         </script>
+      </body>
+   </html>
